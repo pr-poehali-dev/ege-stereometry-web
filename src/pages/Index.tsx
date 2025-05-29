@@ -11,8 +11,6 @@ const Index = () => {
   const renderMainContent = () => (
     <div className="space-y-16">
       <HeroSection />
-      <TopicsSection />
-      <StatsSection />
     </div>
   );
 
@@ -115,7 +113,7 @@ const Index = () => {
 
       <footer className="bg-gray-800 text-white py-8 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="mb-2">© 2024 ЕГЭ Стереометрия</p>
+          <p className="mb-2">© 2025 ЕГЭ Стереометрия</p>
           <p className="text-gray-400">
             Подготовка к экзамену с профессионалами
           </p>
