@@ -1,120 +1,18 @@
 import { useState } from "react";
-import Icon from "@/components/ui/icon";
+import Navigation from "@/components/layout/Navigation";
+import HeroSection from "@/components/sections/HeroSection";
+import TopicsSection from "@/components/sections/TopicsSection";
+import StatsSection from "@/components/sections/StatsSection";
+import { TabType } from "@/types";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState("main");
-
-  const topics = [
-    {
-      title: "Объемы многогранников",
-      description: "Призмы, пирамиды, параллелепипеды",
-      icon: "Box",
-      problems: 25,
-    },
-    {
-      title: "Тела вращения",
-      description: "Цилиндры, конусы, сферы",
-      icon: "Circle",
-      problems: 20,
-    },
-    {
-      title: "Комбинированные фигуры",
-      description: "Сложные составные тела",
-      icon: "Layers",
-      problems: 15,
-    },
-  ];
+  const [activeTab, setActiveTab] = useState<TabType>("main");
 
   const renderMainContent = () => (
     <div className="space-y-16">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800 text-white py-20 px-6">
-        {/* Cloud Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-20 h-12 bg-white rounded-full"></div>
-          <div className="absolute top-8 left-16 w-16 h-8 bg-white rounded-full"></div>
-          <div className="absolute top-16 right-20 w-24 h-14 bg-white rounded-full"></div>
-          <div className="absolute top-12 right-32 w-18 h-10 bg-white rounded-full"></div>
-          <div className="absolute top-32 left-1/4 w-22 h-12 bg-white rounded-full"></div>
-          <div className="absolute top-40 right-1/3 w-20 h-10 bg-white rounded-full"></div>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6 font-montserrat">
-            Стереометрия ЕГЭ
-          </h1>
-          <p className="text-xl mb-8 opacity-90">
-            Задание №3 • Профильная математика • Подготовка к экзамену
-          </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
-              <span className="font-semibold">📐 Объемы</span>
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
-              <span className="font-semibold">🎯 Площади</span>
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
-              <span className="font-semibold">⚡ Быстрое решение</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Topics Section */}
-      <section className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 font-montserrat">
-          Основные темы
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {topics.map((topic, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-l-4 border-blue-500"
-            >
-              <div className="flex items-center mb-4">
-                <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                  <Icon name={topic.icon} size={24} className="text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-800">
-                    {topic.title}
-                  </h3>
-                  <p className="text-sm text-blue-600">
-                    {topic.problems} задач
-                  </p>
-                </div>
-              </div>
-              <p className="text-gray-600 mb-4">{topic.description}</p>
-              <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300">
-                Изучить
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-blue-50 py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12 text-gray-800 font-montserrat">
-            Результаты подготовки
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <div className="text-3xl font-bold text-blue-600 mb-2">95%</div>
-              <p className="text-gray-600">Успешная сдача ЕГЭ</p>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <div className="text-3xl font-bold text-blue-600 mb-2">60+</div>
-              <p className="text-gray-600">Разобранных задач</p>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <div className="text-3xl font-bold text-blue-600 mb-2">3 мес</div>
-              <p className="text-gray-600">Средний срок подготовки</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
+      <TopicsSection />
+      <StatsSection />
     </div>
   );
 
@@ -209,55 +107,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-open-sans">
-      {/* Navigation */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold text-blue-600 font-montserrat">
-              ЕГЭ Стереометрия
-            </div>
-            <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
-              <button
-                onClick={() => setActiveTab("main")}
-                className={`px-6 py-2 rounded-md transition-all duration-300 ${
-                  activeTab === "main"
-                    ? "bg-blue-500 text-white shadow-md"
-                    : "text-gray-600 hover:text-blue-500"
-                }`}
-              >
-                Главная
-              </button>
-              <button
-                onClick={() => setActiveTab("theory")}
-                className={`px-6 py-2 rounded-md transition-all duration-300 ${
-                  activeTab === "theory"
-                    ? "bg-blue-500 text-white shadow-md"
-                    : "text-gray-600 hover:text-blue-500"
-                }`}
-              >
-                Теория
-              </button>
-              <button
-                onClick={() => setActiveTab("practice")}
-                className={`px-6 py-2 rounded-md transition-all duration-300 ${
-                  activeTab === "practice"
-                    ? "bg-blue-500 text-white shadow-md"
-                    : "text-gray-600 hover:text-blue-500"
-                }`}
-              >
-                Практика
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
 
-      {/* Content */}
       {activeTab === "main" && renderMainContent()}
       {activeTab === "theory" && renderTheoryContent()}
       {activeTab === "practice" && renderPracticeContent()}
 
-      {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="mb-2">© 2024 ЕГЭ Стереометрия</p>
