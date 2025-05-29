@@ -111,7 +111,7 @@ const Index = () => {
       {activeTab === "theory" && renderTheoryContent()}
       {activeTab === "practice" && renderPracticeContent()}
 
-      <footer className="bg-gray-800 text-white py-8 px-6 mx-0 my-[330px]">
+      <footer className="bg-gray-800 text-white py-8 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="mb-2">© 2025 ЕГЭ Стереометрия</p>
           <p className="text-gray-400">
